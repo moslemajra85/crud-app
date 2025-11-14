@@ -71,6 +71,39 @@
 }
 
 .user-card-header {
+  .user-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .delete-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .delete-btn:hover {
+    background: rgba(255, 71, 87, 0.8);
+    border-color: #ff4757;
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+  }
+
+  .delete-btn:active {
+    transform: scale(0.95) rotate(10deg);
+  }
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
   color: white;

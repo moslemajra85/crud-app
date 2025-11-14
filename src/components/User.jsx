@@ -1,10 +1,17 @@
 import React from 'react'
 
-const User = ({ user }) => {
+import { MdDeleteOutline } from 'react-icons/md'
+
+const User = ({ user, deleteUser }) => {
     return (
         <div className="user-card" key={user.id}>
             <div className="user-card-header">
-                <h2 className="user-name">👤 {user.name}</h2>
+                <div className="user-card-title">
+                    <h2 className="user-name">👤 {user.name}</h2>
+                    <button className="delete-btn" title="Delete user">
+                        <MdDeleteOutline onClick={() => deleteUser(user.id)} />
+                    </button>
+                </div>
             </div>
             <div className="user-card-body">
                 <div className="user-field">

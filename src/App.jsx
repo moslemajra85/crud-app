@@ -10,6 +10,18 @@ const App = () => {
   const [loading, setLoading] = useState(false)
 
 
+  const deleteUser = (id) => {
+
+
+    // update the state
+    setUsers(users.filter((user) => user.id !== id))
+
+
+    // update Server
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((response) => console.log(response))
+      .catch(err => setError(err))
+  }
   const fetchUsers = () => {
 
 
@@ -40,7 +52,7 @@ const App = () => {
       {loading && <LoadingSpinner />}
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       {
-        <UsersList users={users} />
+        <UsersList deleteUser={deleteUser} users={users} />
       }
 
 
