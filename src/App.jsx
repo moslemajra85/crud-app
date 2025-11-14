@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import LoadingSpinner from "./components/LoadingSpinner"
+import ErrorMessage from "./components/ErrorMessage"
+import UsersList from "./components/UsersList"
 const App = () => {
 
   const [users, setUsers] = useState([])
@@ -10,7 +13,7 @@ const App = () => {
   const fetchUsers = () => {
 
 
-    axios.get('https://jsonplaceholder.typicode.com/usersx')
+    axios.get('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
         setUsers(response.data)
         setLoading(false)
@@ -22,7 +25,7 @@ const App = () => {
 
 
   }
-  
+
   useEffect(() => {
     setLoading(true)
     fetchUsers()
@@ -34,11 +37,13 @@ const App = () => {
 
   return (
     <div>
-      {loading ? <p>...</p> : ''}
-      {error ? <p>{error.message}</p> : ''}
+      {loading && <LoadingSpinner />}
+      {error && <ErrorMessage>{error.message}</ErrorMessage>}
       {
-        users.map(user => <h1>{user.name}</h1>)
+        <UsersList users={users} />
       }
+
+
     </div>
   )
 }

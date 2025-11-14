@@ -1,0 +1,189 @@
+/* Error Message Styles */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+  border-left: 5px solid #ff4757;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.15);
+  animation: slideInLeft 0.4s ease-out;
+  transition: all 0.3s ease;
+}
+
+.error-message:hover {
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.25);
+  transform: translateX(4px);
+}
+
+.error-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.error-text {
+  color: #d63031;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* User Card Styles */
+.user-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 16px 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.user-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.user-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  color: white;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.user-card-body {
+  padding: 20px;
+}
+
+.user-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background-color: #f8f9fa;
+}
+
+.user-field:last-child {
+  margin-bottom: 0;
+}
+
+.user-field:hover {
+  background-color: #e9ecef;
+  transform: translateX(4px);
+}
+
+.field-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.user-field p {
+  margin: 0;
+  color: #2d3436;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Grid Layout */
+.users-grid-container {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .users-grid-container {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .users-grid-container {
+    padding: 16px 12px;
+  }
+
+  .user-card-header {
+    padding: 16px;
+  }
+
+  .user-card-body {
+    padding: 16px;
+  }
+
+  .user-name {
+    font-size: 18px;
+  }
+}
