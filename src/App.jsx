@@ -23,6 +23,15 @@ const App = () => {
       .then((response) => console.log(response))
       .catch(err => setError(err))
   }
+
+  const addUser =(user) => {
+  // update State
+
+
+  // updateServer
+  }
+
+  
   const fetchUsers = () => {
 
 
