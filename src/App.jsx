@@ -24,14 +24,19 @@ const App = () => {
       .catch(err => setError(err))
   }
 
-  const addUser =(user) => {
-  // update State
+  const addUser = (user) => {
+    // update State
+    setUsers([ { ...user, id: 0 },...users])
 
+    // updateServer
 
-  // updateServer
+    axios.post('https://jsonplaceholder.typicode.com/users', user)
+      .then(response => console.log(response))
+      .catch(err => setError(err))
+
   }
 
-  
+
   const fetchUsers = () => {
 
 
@@ -60,7 +65,7 @@ const App = () => {
   return (
     <div>
 
-      <AddUserForm />
+      <AddUserForm addUser={addUser} />
       {loading && <LoadingSpinner />}
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddUserForm = () => {
+const AddUserForm = ({ addUser }) => {
 
     const [user, setUser] = useState({
         name: "",
@@ -18,7 +18,7 @@ const AddUserForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(user);
+        addUser(user)
     }
 
     return (
@@ -32,10 +32,10 @@ const AddUserForm = () => {
                 <form onSubmit={handleSubmit} className="form-content">
                     <div className="form-group">
                         <label htmlFor="name">👤 Name</label>
-                        <input 
-                            value={user.name} 
-                            id="name" 
-                            onChange={handleChange} 
+                        <input
+                            value={user.name}
+                            id="name"
+                            onChange={handleChange}
                             type="text"
                             placeholder="Enter full name"
                             required
@@ -44,10 +44,10 @@ const AddUserForm = () => {
 
                     <div className="form-group">
                         <label htmlFor="email">📧 Email</label>
-                        <input 
-                            value={user.email} 
-                            id="email" 
-                            onChange={handleChange} 
+                        <input
+                            value={user.email}
+                            id="email"
+                            onChange={handleChange}
                             type="email"
                             placeholder="Enter email address"
                             required
@@ -56,10 +56,10 @@ const AddUserForm = () => {
 
                     <div className="form-group">
                         <label htmlFor="phone">📱 Phone</label>
-                        <input 
-                            value={user.phone} 
-                            id="phone" 
-                            onChange={handleChange} 
+                        <input
+                            value={user.phone}
+                            id="phone"
+                            onChange={handleChange}
                             type="text"
                             placeholder="Enter phone number"
                             required
@@ -68,10 +68,10 @@ const AddUserForm = () => {
 
                     <div className="form-group">
                         <label htmlFor="website">🌐 Website</label>
-                        <input 
-                            value={user.website} 
-                            id="website" 
-                            onChange={handleChange} 
+                        <input
+                            value={user.website}
+                            id="website"
+                            onChange={handleChange}
                             type="text"
                             placeholder="Enter website URL"
                             required
