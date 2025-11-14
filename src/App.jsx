@@ -3,6 +3,7 @@ import axios from "axios"
 import LoadingSpinner from "./components/LoadingSpinner"
 import ErrorMessage from "./components/ErrorMessage"
 import UsersList from "./components/UsersList"
+import AddUserForm from "./components/AddUserForm"
 const App = () => {
 
   const [users, setUsers] = useState([])
@@ -49,6 +50,8 @@ const App = () => {
 
   return (
     <div>
+
+      <AddUserForm />
       {loading && <LoadingSpinner />}
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       {
